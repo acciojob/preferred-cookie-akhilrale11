@@ -32,7 +32,9 @@ function applyPreferences() {
 }
 
 // Save preferences to cookies
-function savePreferences() {
+function savePreferences(event) {
+  event.preventDefault(); // Prevent form submission
+
   const fontSize = document.getElementById("fontsize").value;
   const fontColor = document.getElementById("fontcolor").value;
 
@@ -43,7 +45,7 @@ function savePreferences() {
 }
 
 // Event Listener for Save Button
-document.getElementById("save-btn").addEventListener("click", savePreferences);
+document.getElementById("preferences-form").addEventListener("submit", savePreferences);
 
 // Apply preferences on page load
 window.addEventListener("load", applyPreferences);
